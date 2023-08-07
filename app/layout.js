@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+// import LoginForm from '@/components/LoginForm';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="dark:bg-gray-800 dark:text-gray-200">
+        <div className='max-w-3xl mx-auto p-4'>
+          <div className='mt-8'>{children}</div>
+        </div>
+      </body>
     </html>
   )
 }

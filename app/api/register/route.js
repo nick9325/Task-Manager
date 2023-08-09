@@ -5,7 +5,6 @@ import User from "@/models/user";
 import bcrypt from "bcryptjs";
 
 export async function POST( req ){
-
     try{
         const {username,email,password} = await req.json();
         await connectMongoDB();
@@ -18,5 +17,4 @@ export async function POST( req ){
     catch(error){
         return NextResponse.json({message: "Error occured while registering the user"},{status: 500});
     }
-
 }

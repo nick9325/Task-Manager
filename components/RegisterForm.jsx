@@ -72,21 +72,21 @@ export default function RegisterForm() {
 
                 <form onSubmit={handleSubmit} className="mt-6 mb-4">
                     <div className="flex flex-col space-y-3">
-                        <label for="username">
+                        <label htmlFor="username">
                             <p className="font-medium text-white-700 pb-2">Username</p>
                             <input onChange={(e)=>setUserName(e.target.value)} id="username" name="username" type="text" className="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow text-black" placeholder="Enter username" />
                         </label>
-                        <label for="email">
+                        <label htmlFor="email">
                             <p className="font-medium text-white-700 pb-2">Email</p>
                             <input onChange={(e)=>setEmail(e.target.value)} id="email" name="email" type="email" className="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow text-black" placeholder="Enter email address" />
                         </label>
-                        <label for="password">
+                        <label htmlFor="password">
                             <p className="font-medium text-white-700 pb-2">Password</p>
                             <input onChange={(e)=>setPassword(e.target.value)} id="password" name="password" type="password" className="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow text-black" placeholder="Enter your password" />
                         </label>
                         <div className="flex flex-row justify-between">
                             <div>
-                                <label for="remember" className="">
+                                <label htmlFor="remember" className="">
                                     <input type="checkbox" id="remember" className="w-4 h-4 border-slate-200 focus:bg-indigo-600" />
                                     Remember me
                                 </label>

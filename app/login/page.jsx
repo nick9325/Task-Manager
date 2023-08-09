@@ -1,7 +1,6 @@
-import LoginForm from '@/components/LoginForm'
+import LoginForm from "@/components/LoginForm"
 
-
-export default function login() {
+export default function taskManager() {
   return (
     <LoginForm />
   )

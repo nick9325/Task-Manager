@@ -4,15 +4,23 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcryptjs';
 
-const authOptions = {
+export const authOptions = {
 
     providers: [
         CredentialsProvider({
-            name: "Credentials",
+            name: "credentials",
             credentials: {
+                email: {
+                    label: "Email",
+                    type: "email",
+                },
+                password: {
+                    label: "Password",
+                    type: "password",
+                },
             },
             async authorize(credentials) {
-                const {username,email, password} = credentials;
+                const {email, password} = credentials;
                 try {
                     await connectMongoDB();
                     const user = await User.findOne({email});
@@ -27,7 +35,10 @@ const authOptions = {
                     if(!passwordsMatch){
                         return null;
                     }
-    
+                    // const userr=user.username;
+                    // console.log(userr);
+                    // return {userr,email};
+
                     return user;
                     
                 } catch (error) {
@@ -39,25 +50,22 @@ const authOptions = {
             ,
         })
     ],
-
-    callbacks: {
-        async jwt({token,user}){
-            return {...token, ...user};
-        },
-
-        async session({session,token,user}){
-            session.user=token;
-            return session;
-        }
-    },
     session : {
         strategy: "jwt",
+        jwt: true,
     },
-    secrete: process.env.NEXTAUTH_SECRETE,
+    secrete: process.env.NEXTAUTH_SECRET,
 
     pages: {
         signIn: "/login"
     },
+
+    // callbacks: {
+    //     session: async ({ session, token }) => {
+    //         session.userr = token.user.username;
+    //         return session;
+    //     },
+    // }
 
 };
 

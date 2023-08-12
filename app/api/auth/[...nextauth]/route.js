@@ -3,9 +3,11 @@ import User from "@/models/user";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcryptjs';
+import { cookies } from 'next/headers'
+
+
 
 export const authOptions = {
-
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -34,10 +36,7 @@ export const authOptions = {
     
                     if(!passwordsMatch){
                         return null;
-                    }
-                    // const userr=user.username;
-                    // console.log(userr);
-                    // return {userr,email};
+                    }          
 
                     return user;
                     
@@ -50,24 +49,51 @@ export const authOptions = {
             ,
         })
     ],
-    session : {
-        strategy: "jwt",
-        jwt: true,
-    },
-    secrete: process.env.NEXTAUTH_SECRET,
+ 
+    secret: process.env.NEXTAUTH_SECRET,
 
     pages: {
         signIn: "/login"
     },
 
-    // callbacks: {
-    //     session: async ({ session, token }) => {
-    //         session.userr = token.user.username;
-    //         return session;
-    //     },
-    // }
+    callbacks: {
+        session: async ({ session, token }) => {
+          if (session?.user) {
+            session.user.id = token.uid;
+            session.user.username=token.uusername;
+            cookies().set('username',session.user.username);
+            cookies().set('id',session.user.id);
+          }
+          return session;
+        },
+        jwt: async ({ user, token }) => {
+          if (user) {
+            token.uid = user.id;
+            token.uusername=user.username;
+          }
+          return token;
+        },
+
+    },
+    
+        // callbacks: {
+        //     session: async ({ session, token }) => {
+                // Include the user's id and username in the session object
+        //         session.user = {
+        //             id: token._id,
+        //             username: token.username,
+        //         };
+        //         return session;
+        //     },
+        // },
+      session : {
+        strategy: "jwt",
+    },
+
+
 
 };
+
 
 const handler = NextAuth(authOptions);
 

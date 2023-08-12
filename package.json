@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.2",
     "next": "13.4.12",
     "next-auth": "^4.22.5",

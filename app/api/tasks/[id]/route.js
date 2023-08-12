@@ -17,3 +17,4 @@ export async function GET(request,{params}){
     const task=await Task.findOne({_id:id});
     return NextResponse.json({task},{status:200});
 }
+

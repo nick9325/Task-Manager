@@ -4,10 +4,14 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
+import { useSession } from "next-auth/react";
+
 
 export default function addTask() {
 
 
+  const {data: session} = useSession();
+  const userId = session?.user?.id;
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -16,6 +20,8 @@ export default function addTask() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+
 
     if (!title || !description) {
       alert('Title and Description are Required')
@@ -28,7 +34,7 @@ export default function addTask() {
         headers: {
           "Content-type": "application/json"
         },
-        body: JSON.stringify({ title, description }),
+        body: JSON.stringify({userId, title, description }),
       });
 
       if (res.ok) {

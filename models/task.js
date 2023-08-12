@@ -1,9 +1,23 @@
 import mongoose, { Schema } from "mongoose";
 
+
+// delete mongoose.connection.models['User'];
+
 const taskSchema = new Schema(
     {
-        title: String,
-        description: String,
+        title: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        },
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        },
     },
     {
         timestamps: true,

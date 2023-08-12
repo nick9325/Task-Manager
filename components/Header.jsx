@@ -12,7 +12,7 @@ export default function Header() {
       Task Manager
     </Link>
     <div className="flex items-center space-x-4">
-      <span className="text-white">Welcome, {session?.user?.email}!</span>
+      <span className="text-white">Welcome, {session?.user?.username} !</span>
 
       <Link href="/addTask" className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
           Add Task

@@ -1,12 +1,37 @@
+
 import RemoveBtn from "./RemoveBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
+import { cookies } from 'next/headers'
+
+
+
+
+
+
+// console.log(session);
+
+
+
+   
+
+
+
+//http://localhost:3000/api/tasks?userId=${userId}
+
+
 
 
 
 const getTasks = async () => {
+    const cookieStore = cookies()
+    const userId = cookieStore.get('id').value;
+    const userName = cookieStore.get('username');
+    console.log(userId,userName);
+    // const userId=getUserId();
+
     try {
-        const res = await fetch("http://localhost:3000/api/tasks", {
+        const res = await fetch(`http://localhost:3000/api/tasks?userId=${userId}`, {
             cache: "no-store",
         });
         if (!res.ok) {
@@ -33,7 +58,7 @@ export default async function Tasklist() {
                     </div>
 
                     <div className="flex gap-2">
-                        <RemoveBtn id={t._id}/>
+                        <RemoveBtn id={t._id} />
                         <Link href={`/editTask/${t._id}`}>
                             <HiPencilAlt size={24} />
                         </Link>

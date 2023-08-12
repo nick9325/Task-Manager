@@ -44,9 +44,6 @@ export default function LoginForm() {
             console.log("Error occured while login: ",error);
         }
 
-
-
-
     }
 
 

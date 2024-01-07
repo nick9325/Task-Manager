@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import {useState}  from "react"
 import { signIn } from "next-auth/react"
@@ -64,12 +63,6 @@ export default function LoginForm() {
                         </label>
                         <div className="flex flex-row justify-between">
                             <div>
-                                <label htmlFor="remember" className="">
-                                    <input type="checkbox" id="remember" className="w-4 h-4 border-slate-200 focus:bg-indigo-600" />
-                                    Remember me
-                                </label>
-                            </div>
-                            <div>
                                 <a href="#" className="font-medium text-indigo-600">Forgot Password?</a>
                             </div>
                         </div>
@@ -80,20 +73,14 @@ export default function LoginForm() {
                         {error && <div className="text-red-500 text-center text-sm rounded-md">{error}</div>}
 
 
-                        <p className="text-center text-sm">Not registered yet? <Link href={"/register"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Register now </span></Link></p>
+                        <p className="text-center text-sm pt-4">Not registered yet? <Link href={"/register"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Register now </span></Link></p>
                     </div>
 
                     
                 </form>
 
-                <p className="flex justify-center">or</p>
 
 
-                <div className="my-3">
-                    <button className="w-full text-center py-2 my-2 border flex space-x-3 items-center justify-center border-slate-200 rounded-lg text-slate-200 hover:border-slate-400 hover:text-blue-700 hover:shadow transition duration-150">
-                        <Image width={20} height={20} src="https://www.svgrepo.com/show/355037/google.svg" alt="" /> <span className="text-sm">Login with Google</span>
-                    </button>
-                </div>
             </div>
         </div>
     )

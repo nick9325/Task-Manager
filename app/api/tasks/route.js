@@ -14,7 +14,6 @@ export async function POST(request){
 export async function GET(request) {
   try {
     const userId = request.nextUrl.searchParams.get("userId");
-    console.log("userId:", userId);
 
     if (!userId) {
       return NextResponse.json({ message: "Missing userId" }, { status: 400 });
@@ -22,8 +21,6 @@ export async function GET(request) {
 
     await connectMongoDB();
     const tasks = await Task.find({ userId });
-    console.log("Tasks:", tasks);
-
     return NextResponse.json({ tasks });
   } catch (error) {
     console.error("Error fetching tasks:", error);
@@ -38,4 +35,3 @@ export async function DELETE(request){
      return NextResponse.json({message: "Task Deleted"},{status: 200});
 }
 
-//http://localhost:3000/api/tasks?userId=64d6210bc6b5d2f9a61ec633

@@ -69,7 +69,6 @@ export default function RegisterForm() {
         <div className="flex justify-center">
             <div className="w-[400px] bg-black p-6 rounded shadow shadow-slate-300">
                 <h1 className="text-2xl font-medium flex justify-center">Register</h1>
-
                 <form onSubmit={handleSubmit} className="mt-6 mb-4">
                     <div className="flex flex-col space-y-3">
                         <label htmlFor="username">
@@ -84,14 +83,8 @@ export default function RegisterForm() {
                             <p className="font-medium text-white-700 pb-2">Password</p>
                             <input onChange={(e)=>setPassword(e.target.value)} id="password" name="password" type="password" className="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow text-black" placeholder="Enter your password" />
                         </label>
-                        <div className="flex flex-row justify-between">
-                            <div>
-                                <label htmlFor="remember" className="">
-                                    <input type="checkbox" id="remember" className="w-4 h-4 border-slate-200 focus:bg-indigo-600" />
-                                    Remember me
-                                </label>
-                            </div>
-                        </div>
+                        <div className="pb-2"></div>
+                
                         <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                             <span>Register</span>
                         </button>
@@ -102,7 +95,7 @@ export default function RegisterForm() {
                         )
                         }
 
-                        <p className="text-center text-sm">Already have an account? <Link href={"/login"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Login here </span></Link></p>
+                        <p className="text-center text-sm pt-4">Already have an account? <Link href={"/login"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Login here </span></Link></p>
                     </div>
 
 

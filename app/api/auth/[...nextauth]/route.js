@@ -76,16 +76,6 @@ export const authOptions = {
 
     },
     
-        // callbacks: {
-        //     session: async ({ session, token }) => {
-                // Include the user's id and username in the session object
-        //         session.user = {
-        //             id: token._id,
-        //             username: token.username,
-        //         };
-        //         return session;
-        //     },
-        // },
       session : {
         strategy: "jwt",
     },

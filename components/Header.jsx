@@ -4,8 +4,10 @@ import Link from "next/link"
 import { useSession } from "next-auth/react";
 
 export default function Header() {
+
+
   const {data: session} = useSession();
-  console.log(session);
+
   return (
     <nav className="flex justify-between items-center bg-gray-700 rounded px-8 py-3">
     <Link href="/" className="text-white font-bold">

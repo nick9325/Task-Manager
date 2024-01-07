@@ -27,9 +27,9 @@ export default function addTask() {
       alert('Title and Description are Required')
       return;
     }
-
+    
     try {
-      const res = await fetch("http://localhost:3000/api/tasks", {
+      const res = await fetch(`${process.env.MAIN_URL}/api/tasks`, {
         method: "POST",
         headers: {
           "Content-type": "application/json"

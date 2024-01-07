@@ -10,7 +10,7 @@ export default function RemoveBtn({id}) {
   const removeTask=async()=>{
       const confirmed=confirm("Are you sure?");
       if(confirmed){
-          const res=await fetch(`${process.env.MAIN_URL}/api/tasks?id=${id}`,{
+          const res=await fetch(`https://task-manager-zeta-roan.vercel.app//api/tasks?id=${id}`,{
             method: "DELETE",
           });
 

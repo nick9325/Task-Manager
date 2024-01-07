@@ -36,7 +36,7 @@ export default function RegisterForm() {
                 return;
             }
 
-            const res=await fetch("http://localhost:3000/api/register",{
+            const res=await fetch("https://task-manager-zeta-roan.vercel.app/api/register",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"
@@ -49,7 +49,7 @@ export default function RegisterForm() {
             if(res.ok){
                 const form = e.target;
                 form.reset();
-                router.push("http://localhost:3000/login");
+                router.push("https://task-manager-zeta-roan.vercel.app//login");
 
             }
             else{

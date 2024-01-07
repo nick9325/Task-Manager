@@ -27,9 +27,9 @@ export default function addTask() {
       alert('Title and Description are Required')
       return;
     }
-    
+
     try {
-      const res = await fetch(`${process.env.MAIN_URL}/api/tasks`, {
+      const res = await fetch(`https://task-manager-zeta-roan.vercel.app/api/tasks`, {
         method: "POST",
         headers: {
           "Content-type": "application/json"

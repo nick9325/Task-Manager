@@ -21,7 +21,7 @@ export default function RegisterForm() {
         }
         try {
 
-            const resUserExists = await fetch(`${process.env.MAIN_URL}/api/userExists`,{
+            const resUserExists = await fetch(`https://task-manager-zeta-roan.vercel.app/api/userExists`,{
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json",

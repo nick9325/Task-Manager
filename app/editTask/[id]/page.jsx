@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 
 const getTaskById = async (id) => {
   try {
-    const res = await fetch(`${process.env.MAIN_URL}/api/tasks/${id}`, {
+    const res = await fetch(`https://task-manager-zeta-roan.vercel.app/api/tasks/${id}`, {
       cache: "no-store",
     })
     if (!res.ok) {

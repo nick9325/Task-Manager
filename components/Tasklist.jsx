@@ -12,7 +12,7 @@ const getTasks = async () => {
     const userId = cookieStore.get('id').value;
 
     try {
-        const res = await fetch(`http://localhost:3000/api/tasks?userId=${userId}`, {
+        const res = await fetch(`${process.env.MAIN_URL}/api/tasks?userId=${userId}`, {
             cache: "no-store",
         });
         if (!res.ok) {

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 
 const getTaskById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/tasks/${id}`, {
+    const res = await fetch(`${process.env.MAIN_URL}/api/tasks/${id}`, {
       cache: "no-store",
     })
     if (!res.ok) {

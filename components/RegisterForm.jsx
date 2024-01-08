@@ -21,7 +21,7 @@ export default function RegisterForm() {
         }
         try {
 
-            const resUserExists = await fetch(`https://task-manager-zeta-roan.vercel.app/api/userExists`,{
+            const resUserExists = await fetch(`/api/userExists`,{
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json",
@@ -36,7 +36,7 @@ export default function RegisterForm() {
                 return;
             }
 
-            const res=await fetch("https://task-manager-zeta-roan.vercel.app/api/register",{
+            const res=await fetch("/api/register",{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"
@@ -49,7 +49,7 @@ export default function RegisterForm() {
             if(res.ok){
                 const form = e.target;
                 form.reset();
-                router.push("https://task-manager-zeta-roan.vercel.app//login");
+                router.push("/login");
 
             }
             else{
@@ -68,7 +68,7 @@ export default function RegisterForm() {
     return (
         <div className="flex justify-center">
             <div className="w-[400px] bg-black p-6 rounded shadow shadow-slate-300">
-                <h1 className="text-2xl font-medium flex justify-center">Register</h1>
+                <h1 className="text-white-700 text-2xl font-medium flex justify-center">Register</h1>
                 <form onSubmit={handleSubmit} className="mt-6 mb-4">
                     <div className="flex flex-col space-y-3">
                         <label htmlFor="username">
@@ -95,7 +95,7 @@ export default function RegisterForm() {
                         )
                         }
 
-                        <p className="text-center text-sm pt-4">Already have an account? <Link href={"/login"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Login here </span></Link></p>
+                        <p className="text-center text-sm pt-4 text-white-700">Already have an account? <Link href={"/login"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Login here </span></Link></p>
                     </div>
 
 

@@ -29,7 +29,7 @@ export default function addTask() {
     }
 
     try {
-      const res = await fetch(`https://task-manager-zeta-roan.vercel.app/api/tasks`, {
+      const res = await fetch(`/api/tasks`, {
         method: "POST",
         headers: {
           "Content-type": "application/json"

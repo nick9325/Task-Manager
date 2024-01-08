@@ -49,7 +49,7 @@ export default function LoginForm() {
     return (
         <div className="flex justify-center">
             <div className="w-[400px] bg-black p-6 rounded shadow shadow-slate-300">
-                <h1 className="text-2xl font-medium flex justify-center">Login</h1>
+                <h1 className="text-2xl font-medium flex justify-center text-white-700">Login</h1>
 
                 <form onSubmit={handleSubmit} className="mt-6 mb-4">
                     <div className="flex flex-col space-y-3">
@@ -70,7 +70,7 @@ export default function LoginForm() {
                         {error && <div className="text-red-500 text-center text-sm rounded-md">{error}</div>}
 
 
-                        <p className="text-center text-sm pt-4">Not registered yet? <Link href={"/register"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Register now </span></Link></p>
+                        <p className="text-center text-sm pt-4 text-white-700">Not registered yet? <Link href={"/register"} className="text-indigo-600 font-medium inline-flex space-x-1 items-center"><span className="underline">Register now </span></Link></p>
                     </div>
 
                     

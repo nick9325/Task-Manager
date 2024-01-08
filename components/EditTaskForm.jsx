@@ -13,7 +13,7 @@ export default function EditTaskForm({ id, title, description }) {
         e.preventDefault();
 
         try {
-            const res = await fetch(`https://task-manager-zeta-roan.vercel.app/api/tasks/${id}`, {
+            const res = await fetch(`/api/tasks/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-type": "application/json",
